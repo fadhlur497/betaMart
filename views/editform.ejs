@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <%- include('partials/navbar.ejs') %>
     <center>
 
         <form action="/stores/<%= data.id %>/employees/<%= data.Employees[0].id %>/edit" method="post">

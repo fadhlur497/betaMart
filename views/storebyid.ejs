@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body><center>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <center>
 
     <h1><%= data.name %> </h1>
     <h3><%= data.code %> </h3>
@@ -17,31 +19,36 @@
     <% if(data.Employees.length < 1) {%>
         <p>There is no Employee yet</p>
     <% } else { %>
-        <table border="1">
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Education</th>
-                <th>Position</th>
-                <th>Salary</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <% data.Employees.forEach((el) => { %>
-                    <td><%= el.firstName %> </td>
-                    <td><%= el.lastName %> </td>
-                    <td><%= el.age %> </td>
-                    <td><%= el.education %> </td>
-                    <td><%= el.position %> </td>
-                    <td><%= convertSalary(el.salary) %> </td>
-                    <td>
-                        <a href="/stores/<%= data.id %>/employees/<%= el.id %>/edit">Edit</a>
-                        <a href="/stores/<%= data.id %>/employees/<%= el.id %>/delete">Delete</a>
-                    </td>
-                </tr>
-                <% }) %> 
-        </table>
+        <table class="table" style="max-width: 1100px;">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Education</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <% data.Employees.forEach((el) => { %>
+                        <td><%= el.firstName %> </td>
+                        <td><%= el.lastName %> </td>
+                        <td><%= el.age %> </td>
+                        <td><%= el.education %> </td>
+                        <td><%= el.position %> </td>
+                        <td><%= convertSalary(el.salary) %> </td>
+                        <td>
+                            <a href="/stores/<%= data.id %>/employees/<%= el.id %>/edit"><button class="btn btn-outline-primary">Edit</button></a>
+                            <a href="/stores/<%= data.id %>/employees/<%= el.id %>/delete"><button class="btn btn-outline-primary">Delete</button></a>
+                        </td>
+                    </tr>
+                    <% }) %> 
+              
+            </tbody>
+          </table>
     <% } %> 
 </center>
     

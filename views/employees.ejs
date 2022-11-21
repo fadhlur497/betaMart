@@ -1,59 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
     <center>
-        
-        <div>
-            <a class="nav-link" href="/stores">Home ||</a>
-            <a class="nav-link" href="/stores/add">Add a New Store ||</a>
-            <a class="nav-link" href="/employees">Employess</a>
-        </div>
+      <h1>Employee List</h1>
+      <br /><br />
+      <form action="/employees" method="get">
+        <button  class="btn btn-primary" >All</button>
+        <button  class="btn btn-secondary" name="position" value="Manager">Manager</button>
+        <button  class="btn btn-success" name="position" value="CEO">CEO</button>
+        <button  class="btn btn-danger" name="position" value="Staff">Staff</button>
+        <button  class="btn btn-warning" name="position" value="Supervisor">Supervisor</button>
+      </form>
+      <br />
+      <table class="table" style="max-width: 1100px">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Store's Code</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach (el=> { %>
+          <tr>
+            <th scope="row"><%= el.id %></th>
+            <td><%= `${el.firstName} ${el.lastName}`%></td>
+            <td><%= el.position %></td>
+            <td><%= convertSalary(el.salary) %></td>
+            <td><%= el.Store.code %></td>
+            <td>
+              <a href="/stores/<%= el.Store.id %>/employees/<%= el.id %>/delete"
+                ><button type="button" class="btn btn-outline-primary">
+                  Delete
+                </button></a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
     </center>
-   <center> <h1>Employee List</h1>
-    <form action="/employees" method="get">
-        <button>ALL</button>
-        <button name="position" value="Manager">Manager</button>
-        <button name="position" value="CEO">CEO</button>
-        <button name="position" value="Staff">Staff</button>
-        <button name="position" value="Supervisor">Supervisor</button>
-    </form>
-    <table border= "1">
-     <thead class="table-dark">
-         <tr>
-             <br><br>
-             <th>Name</th>
-             <th>Position</th>
-             <th>salary</th>
-             <th>Store's Code</th>
-             <th>Action </th>
-         </tr>
-     </thead>
-     <tr>
-         <% data.forEach (el=> { %>
-             <td>
-                 <%= `${el.firstName} ${el.lastName}`%>
-             </td>
-             <td>
-                 <%= el.position %>
-             </td>
-             <td>
-                <%= convertSalary(el.salary) %>
-             </td>
-             <td>
-                 <%= el.Store.code %>
-             </td>
-             <td>
-                <a href="/stores/<%= el.Store.id %>/employees/<%= el.id %>/delete">Delete</a>
-             </td>
-     </tr>
-     <% }) %>
- </table>
-</center>
-</body>
+  </body>
 </html>
