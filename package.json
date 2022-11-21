@@ -4,6 +4,8 @@
   "description": "Merupakan challenge yang dinilai 💯\r ```txt\r Terbagi 2 Deadline :\r - Part 1 W4D2 09.00 WIB\r - Part 2 W4D3 09.00 WIB\r ```",
   "main": "app.js",
   "scripts": {
+    "dev": "NODE_ENV=development npx nodemon app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
