@@ -21,6 +21,14 @@
     </h4>
     <button class="btn btn-primary" type="submit">Button</button>
     </form>
-    </center>
+</center>
+<% if(errors){ %>
+    <% errors=errors.split(',') %>
+        <% errors.forEach((el)=> { %>
+            <p style="color: red; margin-left: 500px;">
+                <%= el %>
+            </p>
+            <% }) %>
+                <% } %>
 </body>
 </html>

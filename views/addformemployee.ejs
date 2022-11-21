@@ -43,6 +43,14 @@
         Salary : <input type="number" name="salary" id="" class="form-control"><br><br>
         <button class="btn btn-primary" type="submit" value="Add">Button</button>
     </form>
+    <% if(errors){ %>
+        <% errors=errors.split(',') %>
+            <% errors.forEach((el)=> { %>
+                <p style="color: red;">
+                    <%= el %>
+                </p>
+                <% }) %>
+                    <% } %>
 </div>
 </body>
 
