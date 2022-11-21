@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><center>
+
+    <h1><%= data.name %> </h1>
+    <h3><%= data.code %> </h3>
+    <label for="">Employees Fee : <%= convertSalary(sum) %></label><br>
+
+    <a href="/stores">Back to Stores Data</a><br><br>
+    Click <a href="/stores/<%= data.id %>/employees/add">Here</a> To Add Employee<br><br>
+    <% if(data.Employees.length < 1) {%>
+        <p>There is no Employee yet</p>
+    <% } else { %>
+        <table border="1">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Education</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <% data.Employees.forEach((el) => { %>
+                    <td><%= el.firstName %> </td>
+                    <td><%= el.lastName %> </td>
+                    <td><%= el.age %> </td>
+                    <td><%= el.education %> </td>
+                    <td><%= el.position %> </td>
+                    <td><%= convertSalary(el.salary) %> </td>
+                    <td>
+                        <a href="/stores/<%= data.id %>/employees/<%= el.id %>/edit">Edit</a>
+                        <a href="/stores/<%= data.id %>/employees/<%= el.id %>/delete">Delete</a>
+                    </td>
+                </tr>
+                <% }) %> 
+        </table>
+    <% } %> 
+</center>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "betamart",
+  "version": "1.0.0",
+  "description": "Merupakan challenge yang dinilai 💯\r ```txt\r Terbagi 2 Deadline :\r - Part 1 W4D2 09.00 WIB\r - Part 2 W4D3 09.00 WIB\r ```",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hck-51-youthful-fox/betamart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hck-51-youthful-fox/betamart/issues"
+  },
+  "homepage": "https://github.com/hck-51-youthful-fox/betamart#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "pg": "^8.8.0",
+    "sequelize": "^6.24.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.5.1"
+  }
+}

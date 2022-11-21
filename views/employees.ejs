@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        
+        <div>
+            <a class="nav-link" href="/stores">Home ||</a>
+            <a class="nav-link" href="/stores/add">Add a New Store ||</a>
+            <a class="nav-link" href="/employees">Employess</a>
+        </div>
+    </center>
+   <center> <h1>Employee List</h1>
+    <form action="/employees" method="get">
+        <button>ALL</button>
+        <button name="position" value="Manager">Manager</button>
+        <button name="position" value="CEO">CEO</button>
+        <button name="position" value="Staff">Staff</button>
+        <button name="position" value="Supervisor">Supervisor</button>
+    </form>
+    <table border= "1">
+     <thead class="table-dark">
+         <tr>
+             <br><br>
+             <th>Name</th>
+             <th>Position</th>
+             <th>salary</th>
+             <th>Store's Code</th>
+             <th>Action </th>
+         </tr>
+     </thead>
+     <tr>
+         <% data.forEach (el=> { %>
+             <td>
+                 <%= `${el.firstName} ${el.lastName}`%>
+             </td>
+             <td>
+                 <%= el.position %>
+             </td>
+             <td>
+                <%= convertSalary(el.salary) %>
+             </td>
+             <td>
+                 <%= el.Store.code %>
+             </td>
+             <td>
+                <a href="/stores/<%= el.Store.id %>/employees/<%= el.id %>/delete">Delete</a>
+             </td>
+     </tr>
+     <% }) %>
+ </table>
+</center>
+</body>
+</html>

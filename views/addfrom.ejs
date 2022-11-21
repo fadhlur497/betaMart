@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div>
+            <a class="nav-link" href="/stores">Home ||</a>
+            <a class="nav-link" href="/stores/add">Add a New Store ||</a>
+            <a class="nav-link" href="/employees"">Employess</a>
+        </div>
+        <h1>Create New Store</h1><br>
+        <form action="/stores/add" method="post">
+        <h3>Plase filled the form below to add a new store</h3><br><br>
+        <h4>what is the name of your store?</h4>
+        <input type="text" name="name" id="" >
+        <h4>where does your store located?</h4>
+        <input type="text" name="location" id="" >
+        <h4>what kind of store do you want</h4>
+        <input type="radio" name="category" value="Mart"> Mart
+        <input type="radio" name="category" value="Midi"> Midi
+        <input type="radio" name="category" value="Express"> Express <br><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    </center>
+</body>
+</html>

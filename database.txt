@@ -1,0 +1,2 @@
+postgres://postgres:[YOUR-PASSWORD]@db.uvkkhahijpbksblhplui.supabase.co:6543/postgres
+postgres://postgres:Lubangsemut157@db.uvkkhahijpbksblhplui.supabase.co:6543/postgres

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+
+        <form action="/stores/<%= data.id %>/employees/<%= data.Employees[0].id %>/edit" method="post">
+            First Name : <br>
+            <input type="text" name="firstName" id="" value="<%= data.Employees[0].firstName %>"><br><br>
+            Last Name : <br>
+            <input type="text" name="lastName" id="" value="<%= data.Employees[0].lastName %>"><br><br>
+            Date of Birth : <br>
+            <input type="date" name="dateOfBirth" id="" value="<%= data.Employees[0].formatdate %>"><br><br>
+            Education : <br>
+            <select name="education" id="">
+                <option selected disabled>-- SELECT ONE --</option>
+                <% ['SMA', 'S1' , 'S2' , 'S3' ].forEach((el)=> { %>
+                    <% if(el===data.Employees[0].education) { %>
+                        <option value="<%= el %>" selected="selected">
+                            <%= el %>
+                        </option>
+                        <% } else { %>
+                            <option value="<%= el %>">
+                                <%= el %>
+                            </option>
+                            <% } %>
+                                <% }) %>
+            </select><br><br>
+            Position : <br>
+            <% ['Staff', 'Manager' , 'Supervisor' , 'CEO' ].forEach((el)=> { %>
+                <% if(el===data.Employees[0].position) { %>
+                    <input type="radio" name="position" id="radio" value="<%= el %>" checked="checked">
+                    <label for="">
+                        <%= el %>
+                    </label>
+                    <% } else { %>
+                        <input type="radio" name="position" id="radio" value="<%= el %>">
+                        <label for="">
+                            <%= el %>
+                        </label>
+                        <% } %>
+                            <% }) %> <br><br>
+                                Salary : <br>
+                                <input type="number" name="salary" id=""
+                                    value="<%= data.Employees[0].salary %>"><br><br>
+                                <input type="submit" value="Edit">
+        </form>
+    </center>
+</body>
+
+</html>

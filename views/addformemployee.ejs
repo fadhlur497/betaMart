@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+
+        <h1>Add Employee</h1>
+        <h2>Store Name : <%= data.name %>
+        </h2>
+
+        <form action="/stores/<%= data.id %>/employees/add" method="post">
+            First Name : <br>
+            <input type="text" name="firstName" id=""><br><br>
+            Last Name : <br>
+            <input type="text" name="lastName" id=""><br><br>
+            Date of Birth : <br>
+            <input type="date" name="dateOfBirth" id=""><br><br>
+            Education : <br>
+            <select name="education" id="">
+                <option selected disabled>-- SELECT ONE --</option>
+                <option value="SMA">SMA</option>
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S3">S3</option>
+            </select><br><br>
+            Position : <br>
+            <input type="radio" name="position" id="radio" value="Staff">
+            <label for="">Staff</label>
+            <input type="radio" name="position" id="radio" value="Manager">
+            <label for="">Manager</label>
+            <input type="radio" name="position" id="radio" value="Supervisor">
+            <label for="">Supervisor</label>
+            <input type="radio" name="position" id="radio" value="CEO">
+            <label for="">CEO</label><br><br>
+            Salary : <br>
+            <input type="number" name="salary" id=""><br><br>
+            <input type="submit" value="Add">
+        </form>
+    </center>
+</body>
+
+</html>
