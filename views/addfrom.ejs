@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <%- include('partials/navbar.ejs') %>
-    <center>
-        <h1>Create New Store</h1><br>
+  </head>
+  <body>
+    <div
+      class="bg-image"
+      style="
+        background-image: url('https://source.unsplash.com/twukN12EN7c/1920x1080');
+        height: 100vh;
+      "
+    >
+      <%- include('partials/navbar.ejs') %>
+      <center>
+        <h1>Create New Store</h1>
+        <br />
         <form action="/stores/add" method="post">
-        <h3>Plase filled the form below to add a new store</h3><br><br>
-        <h4>what is the name of your store?  <input type="text" name="name" id="" ></h4>
-        <h4>where does your store located? <input type="text" name="location" id="" ></h4>
-        <h4>what kind of store do you want ? 
-        <input type="radio" name="category" value="Mart"> Mart
-        <input type="radio" name="category" value="Midi"> Midi
-        <input type="radio" name="category" value="Express"> Express <br><br><br>
-    </h4>
-    <button class="btn btn-primary" type="submit">Button</button>
-    </form>
-</center>
-<% if(errors){ %>
-    <% errors=errors.split(',') %>
-        <% errors.forEach((el)=> { %>
-            <p style="color: red; margin-left: 500px;">
-                <%= el %>
-            </p>
-            <% }) %>
-                <% } %>
-</body>
+          <h3>Plase filled the form below to add a new store</h3>
+          <br /><br />
+          <h4>
+            what is the name of your store?
+            <input type="text" name="name" id="" />
+          </h4>
+          <h4>
+            where does your store located?
+            <input type="text" name="location" id="" />
+          </h4>
+          <h4>
+            what kind of store do you want ?
+            <input type="radio" name="category" value="Mart" /> Mart
+            <input type="radio" name="category" value="Midi" /> Midi
+            <input type="radio" name="category" value="Express" /> Express
+            <br /><br /><br />
+          </h4>
+          <button class="btn btn-primary" type="submit">Button</button>
+        </form>
+      </center>
+      <% if(errors){ %> <% errors=errors.split(',') %> <% errors.forEach((el)=>
+      { %>
+      <p style="color: red; margin-left: 500px"><%= el %></p>
+      <% }) %> <% } %>
+    </div>
+  </body>
 </html>

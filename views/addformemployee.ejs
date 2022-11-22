@@ -1,57 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-    <%- include('partials/navbar.ejs') %>
-    <center>
-
+  <body>
+    <div
+      class="bg-image"
+      style="
+        background-image: url('https://source.unsplash.com/twukN12EN7c/1920x1080');
+        height: 100vh;
+      "
+    >
+      <%- include('partials/navbar.ejs') %>
+      <center>
         <h1>Add Employee</h1>
-        <h2>Store Name : <%= data.name %>
-        </h2>
-    </center>
-<div style="font-size: 20px; margin-left: 300px; margin-right: 300px; margin-top: 40px;">
-
-    <form action="/stores/<%= data.id %>/employees/add" method="post">
-        First Name : <input type="text" name="firstName" class="form-control"  id=""><br>
-        Last Name : <input type="text" name="lastName" class="form-control" id=""><br>
-        Date of Birth : <br>
-        <input type="date" name="dateOfBirth" id="" class="form-control"><br>
-        Education : <br>
-        <select name="education" id="" class="form-control">
+        <h2>Store Name : <%= data.name %></h2>
+      </center>
+      <div
+        style="
+          font-size: 20px;
+          margin-left: 300px;
+          margin-right: 300px;
+          margin-top: 40px;
+        "
+      >
+        <form action="/stores/<%= data.id %>/employees/add" method="post">
+          First Name :
+          <input
+            type="text"
+            name="firstName"
+            class="form-control"
+            id=""
+          /><br />
+          Last Name :
+          <input type="text" name="lastName" class="form-control" id="" /><br />
+          Date of Birth : <br />
+          <input
+            type="date"
+            name="dateOfBirth"
+            id=""
+            class="form-control"
+          /><br />
+          Education : <br />
+          <select name="education" id="" class="form-control">
             <option selected disabled>-- SELECT ONE --</option>
             <option value="SMA">SMA</option>
             <option value="S1">S1</option>
             <option value="S2">S2</option>
-            <option value="S3">S3</option>
-        </select><br>
-        <label for="" style="margin-right: 70px;">Position : </label>
-        <input type="radio" name="position" id="radio" value="Staff">
-        <label for="" style="margin-right: 21px;">Staff</label>
-        <input type="radio" name="position" id="radio" value="Manager">
-        <label for="" style="margin-right: 21px;">Manager</label>
-        <input type="radio" name="position" id="radio" value="Supervisor">
-        <label for="" style="margin-right: 21px;">Supervisor</label>
-        <input type="radio" name="position" id="radio" value="CEO">
-        <label for="" style="margin-right: 21px;">CEO</label><br>
-        Salary : <input type="number" name="salary" id="" class="form-control"><br><br>
-        <button class="btn btn-primary" type="submit" value="Add">Button</button>
-    </form>
-    <% if(errors){ %>
-        <% errors=errors.split(',') %>
-            <% errors.forEach((el)=> { %>
-                <p style="color: red;">
-                    <%= el %>
-                </p>
-                <% }) %>
-                    <% } %>
-</div>
-</body>
-
+            <option value="S3">S3</option></select
+          ><br />
+          <label for="" style="margin-right: 70px">Position : </label>
+          <input type="radio" name="position" id="radio" value="Staff" />
+          <label for="" style="margin-right: 21px">Staff</label>
+          <input type="radio" name="position" id="radio" value="Manager" />
+          <label for="" style="margin-right: 21px">Manager</label>
+          <input type="radio" name="position" id="radio" value="Supervisor" />
+          <label for="" style="margin-right: 21px">Supervisor</label>
+          <input type="radio" name="position" id="radio" value="CEO" />
+          <label for="" style="margin-right: 21px">CEO</label><br />
+          Salary :
+          <input
+            type="number"
+            name="salary"
+            id=""
+            class="form-control"
+          /><br /><br />
+          <button class="btn btn-primary" type="submit" value="Add">
+            Button
+          </button>
+        </form>
+        <% if(errors){ %> <% errors=errors.split(',') %> <%
+        errors.forEach((el)=> { %>
+        <p style="color: red"><%= el %></p>
+        <% }) %> <% } %>
+      </div>
+    </div>
+  </body>
 </html>

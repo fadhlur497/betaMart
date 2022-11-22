@@ -1,66 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-    <%- include('partials/navbar.ejs') %>
-        <div style="font-size: 20px; margin-left: 300px; margin-right: 300px; margin-top: 40px;">
-            <form action="/stores/<%= data.id %>/employees/<%= data.Employees[0].id %>/edit" method="post">
-                First Name : <br>
-                <input type="text" name="firstName" id="" value="<%= data.Employees[0].firstName %>" class="form-control"><br>
-                Last Name : <br>
-                <input type="text" name="lastName" id="" value="<%= data.Employees[0].lastName %>" class="form-control"><br>
-                Date of Birth : <br>
-                <input type="date" name="dateOfBirth" id="" value="<%= data.Employees[0].formatdate %>" class="form-control"><br>
-                Education : <br>
-                <select name="education" id="" class="form-control">
-                    <option selected disabled>-- SELECT ONE --</option>
-                    <% ['SMA', 'S1' , 'S2' , 'S3' ].forEach((el)=> { %>
-                        <% if(el===data.Employees[0].education) { %>
-                            <option value="<%= el %>" selected="selected">
-                                <%= el %>
-                            </option>
-                            <% } else { %>
-                                <option value="<%= el %>">
-                                    <%= el %>
-                                </option>
-                                <% } %>
-                                    <% }) %>
-                </select><br>
-                <label for="" style="margin-right: 70px;">Position : </label>
-                <% ['Staff', 'Manager' , 'Supervisor' , 'CEO' ].forEach((el)=> { %>
-                    <% if(el===data.Employees[0].position) { %>
-                        <input type="radio" name="position" id="radio" value="<%= el %>" checked="checked">
-                        <label for="" style="margin-right: 21px;">
-                            <%= el %>
-                        </label>
-                        <% } else { %>
-                            <input type="radio" name="position" id="radio" value="<%= el %>">
-                            <label for="" style="margin-right: 21px;">
-                                <%= el %>
-                            </label>
-                            <% } %>
-                                <% }) %> <br><br>
-                                    Salary : <br>
-                                    <input type="number" name="salary" id="" class="form-control"
-                                        value="<%= data.Employees[0].salary %>"><br><br>
-                                    <button type="submit" value="Edit" class="btn btn-primary">Edit</button>
-            </form>
-            <% if(errors){ %>
-                <% errors=errors.split(',') %>
-                    <% errors.forEach((el)=> { %>
-                        <p style="color: red;">
-                            <%= el %>
-                        </p>
-                        <% }) %>
-                            <% } %>
-            </div>
-</body>
-
+  <body>
+    <div
+      class="bg-image"
+      style="
+        background-image: url('https://source.unsplash.com/twukN12EN7c/1920x1080');
+        height: 100vh;
+      "
+    >
+      <%- include('partials/navbar.ejs') %>
+      <div
+        style="
+          font-size: 20px;
+          margin-left: 300px;
+          margin-right: 300px;
+          margin-top: 40px;
+        "
+      >
+        <form
+          action="/stores/<%= data.id %>/employees/<%= data.Employees[0].id %>/edit"
+          method="post"
+        >
+          First Name : <br />
+          <input
+            type="text"
+            name="firstName"
+            id=""
+            value="<%= data.Employees[0].firstName %>"
+            class="form-control"
+          /><br />
+          Last Name : <br />
+          <input
+            type="text"
+            name="lastName"
+            id=""
+            value="<%= data.Employees[0].lastName %>"
+            class="form-control"
+          /><br />
+          Date of Birth : <br />
+          <input
+            type="date"
+            name="dateOfBirth"
+            id=""
+            value="<%= data.Employees[0].formatdate %>"
+            class="form-control"
+          /><br />
+          Education : <br />
+          <select name="education" id="" class="form-control">
+            <option selected disabled>-- SELECT ONE --</option>
+            <% ['SMA', 'S1' , 'S2' , 'S3' ].forEach((el)=> { %> <%
+            if(el===data.Employees[0].education) { %>
+            <option value="<%= el %>" selected="selected"><%= el %></option>
+            <% } else { %>
+            <option value="<%= el %>"><%= el %></option>
+            <% } %> <% }) %></select
+          ><br />
+          <label for="" style="margin-right: 70px">Position : </label>
+          <% ['Staff', 'Manager' , 'Supervisor' , 'CEO' ].forEach((el)=> { %> <%
+          if(el===data.Employees[0].position) { %>
+          <input
+            type="radio"
+            name="position"
+            id="radio"
+            value="<%= el %>"
+            checked="checked"
+          />
+          <label for="" style="margin-right: 21px"> <%= el %> </label>
+          <% } else { %>
+          <input type="radio" name="position" id="radio" value="<%= el %>" />
+          <label for="" style="margin-right: 21px"> <%= el %> </label>
+          <% } %> <% }) %> <br /><br />
+          Salary : <br />
+          <input
+            type="number"
+            name="salary"
+            id=""
+            class="form-control"
+            value="<%= data.Employees[0].salary %>"
+          /><br /><br />
+          <button type="submit" value="Edit" class="btn btn-primary">
+            Edit
+          </button>
+        </form>
+        <% if(errors){ %> <% errors=errors.split(',') %> <%
+        errors.forEach((el)=> { %>
+        <p style="color: red"><%= el %></p>
+        <% }) %> <% } %>
+      </div>
+    </div>
+  </body>
 </html>
